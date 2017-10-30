@@ -4,7 +4,7 @@ import initialState from './initialState';
 export default function numbersReducer(state = initialState.number, action) {
     switch (action.type) {
         case "INCREMENT_NUMBER": {
-            return { state }
+            return { ...state, number: state.number + 1 }
         }
         default:
             return state;
