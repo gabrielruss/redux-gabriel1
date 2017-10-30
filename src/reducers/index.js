@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import numbersReducer from './numbersReducer';
 
 const rootReducer = combineReducers({
-    numbers: numbersReducer
+    number: numbersReducer
 });
 
 export default rootReducer;
