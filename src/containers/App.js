@@ -1,47 +1,24 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import { incrementNumber } from '../actions/appActions';
-import NumberForm from '../components/Number';
 
-// class App extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             number: this.props.number
-//         }
-//     }
+export class App extends React.Component {
 
-//     _handleClick = (event) => {
-//         event.preventDefault();
-//         this.props.actions();
-//     }
-
-//     render() {
-//         return (
-//             <div>
-//                 Current number: {this.props.number}
-//                 <br />
-//                 <button
-//                     onClick={this._handleClick}
-//                 >
-//                 +</button>
-//             </div>
-//         );
-//     }
-// }
-
-const mapStateToProps = (state, ownProps) => {
-    number: state.number
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-    onClick: () => {
-        dispatch(incrementNumber(ownProps.number));
+    componentDidMount() {
+        this.props.dispatch(incrementNumber());
     }
-};
 
-const App = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(NumberForm);
+    render() {
+        return (
+            <div>
+                Current number: {this.props.number}
+            </div>
+        );
+    }
+}
 
-export default App;
+const mapStateToProps = state => ({
+    number: state.number
+});
+
+export default connect(mapStateToProps)(App);
