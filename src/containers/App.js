@@ -4,7 +4,8 @@ import { incrementNumber } from '../actions/appActions';
 
 export class App extends React.Component {
 
-    componentDidMount() {
+    _onClick = (e) => {
+        e.preventDefault();
         this.props.dispatch(incrementNumber());
     }
 
@@ -12,13 +13,16 @@ export class App extends React.Component {
         return (
             <div>
                 Current number: {this.props.number}
+                <button onClick={this._onClick}>
+                +
+                </button>
             </div>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    number: state.number
+    number: state.myNumbers.number
 });
 
 export default connect(mapStateToProps)(App);

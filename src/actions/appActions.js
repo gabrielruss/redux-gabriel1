@@ -1,5 +1,5 @@
-// import { INCREMENT_NUMBER } from './actionTypes';
+import { INCREMENT_NUMBER } from './actionTypes';
 
-export function incrementNumber(number) {
-    return { type: "INCREMENT_NUMBER", number}
+export function incrementNumber() {
+    return { type: INCREMENT_NUMBER}
 }
