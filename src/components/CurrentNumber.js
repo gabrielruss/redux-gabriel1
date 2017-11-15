@@ -1,9 +1,11 @@
 import React from 'react';
 
-const CurrentNumber = ({ currentNumber, onIncrement, onDecrement }) => {
+const CurrentNumber = ({ currentNumber, onIncrement, onDecrement, currentIncrement }) => {
     return (
         <div>
             Current number: {currentNumber}
+            <br />
+            Currently incrementing by: {currentIncrement}
             <br />
             <button
                 onClick={e => {

@@ -35,7 +35,7 @@ export class App extends React.Component {
     render() {
         return (
             <div>
-                <CurrentNumber currentNumber={this.props.number} onIncrement={this.onIncrement} onDecrement={this.onDecrement} />
+                <CurrentNumber currentNumber={this.props.number} onIncrement={this.onIncrement} onDecrement={this.onDecrement} currentIncrement={this.props.incrementValue} />
                 Number to Increment:<input value={this.state.incrementNumber} onChange={this.inputChange} />
                 <button onClick={this.setIncrement}>Save</button>
             </div>
@@ -44,7 +44,8 @@ export class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    number: state.myNumbers.number
+    number: state.myNumbers.number,
+    incrementValue: state.myNumbers.incrementValue
 });
 
 export default connect(mapStateToProps)(App);
